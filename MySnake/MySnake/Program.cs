@@ -10,9 +10,7 @@ namespace MySnake
     {
         static void Main(string[] args)
         {
-<<<<<<< Updated upstream
-=======
-            Point p1 = new Point();
+            Point p1 = new Point(5, 6, '*');
             p1.Draw(3, 4, '*');
 
             Console.ReadLine();
@@ -22,7 +20,6 @@ namespace MySnake
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
->>>>>>> Stashed changes
         }
     }
 }
