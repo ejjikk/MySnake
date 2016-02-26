@@ -10,16 +10,20 @@ namespace MySnake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(5, 6, '*');
-            p1.Draw(3, 4, '*');
 
+            DrowFrame();
             Console.ReadLine();
         }
-
-        static void Draw (int x, int y, char sym)
+        static void DrowFrame()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+            var UpLine = new HorizontalLine(0, 78, 0, '-');
+            var DownLine = new HorizontalLine(0, 78, 24, '-');
+            var LeftLine = new VerticalLine(0, 0, 24, '|');
+            var RightLine = new VerticalLine(78, 0, 24, '|');
+            UpLine.Draw();
+            DownLine.Draw();
+            LeftLine.Draw();
+            RightLine.Draw();
         }
     }
 }

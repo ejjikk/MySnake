@@ -21,15 +21,10 @@ namespace MySnake
             y = _y;
             sym = _sym;
         }
-        public void Draw(int x, int y, char sym)
+        public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
-        }
-        public void Draw(Point p)
-        {
-            Console.SetCursorPosition(p.x, p.y);
-            Console.Write(p.sym);
         }
     }
 }
