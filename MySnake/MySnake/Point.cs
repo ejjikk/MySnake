@@ -21,33 +21,33 @@ namespace MySnake
             y = p.y;
             sym = p.sym;
         }
-        public void Move (int offset, Direction direction)
-        {
-            if (direction == Direction.RIGHT)
-                x += offset;
-            if (direction == Direction.LEFT)
-                x -= offset; 
-            if (direction == Direction.UP)
-                y += offset; 
-            if (direction == Direction.DOWN)
-                y -= offset;
-        }
         public Point(int _x, int _y, char _sym)
         {
             x = _x;
             y = _y;
             sym = _sym;
-        }
+        }        
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
         }
+        public void Move (int offset, Direction direction)
+        {
+            if (direction == Direction.RIGHT)
+                x += offset;
+            else if (direction == Direction.LEFT)
+                x -= offset; 
+            else if (direction == Direction.UP)
+                y -= offset; 
+            else if (direction == Direction.DOWN)
+                y += offset;
+        }
+        
         public override string ToString()
         {
             return x + ", " + y + ", " + sym;
         }
-
         public void Clear()
         {
             sym = ' ';

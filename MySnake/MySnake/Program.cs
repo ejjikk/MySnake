@@ -14,15 +14,10 @@ namespace MySnake
             // Отрисовка рамки
             DrowFrame(); 
             // Отрисовка змейки
-            var startPoint = new Point (3, 3, '*');
+            var startPoint = new Point (3, 3, '☺');
             var snake = new Snake(startPoint, 4, Direction.RIGHT);
             snake.Draw();
-            int i = 15;
-            while ((i--) != 0)
-            {
-                snake.Move();
-                Thread.Sleep(300);
-            }
+            snake.HandleKey();
             Console.ReadLine();
         }
         static void DrowFrame()
