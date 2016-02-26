@@ -41,25 +41,28 @@ namespace MySnake
             return nextPoint;
         }
 
-        public void HandleKey()
+        public void HandleKey(ConsoleKeyInfo key)
         {
-            while (true)
+            if (key.Key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            else if (key.Key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            else if (key.Key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
+            else if (key.Key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+
+        }
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
             {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    if (key.Key == ConsoleKey.RightArrow)
-                        direction = Direction.RIGHT;
-                    else if (key.Key == ConsoleKey.LeftArrow)
-                        direction = Direction.LEFT;
-                    else if (key.Key == ConsoleKey.UpArrow)
-                        direction = Direction.UP;
-                    else if (key.Key == ConsoleKey.DownArrow)
-                        direction = Direction.DOWN;
-                }
-                Thread.Sleep(300);
-                Move();
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
             }
+            else return false;
         }
     }
 }

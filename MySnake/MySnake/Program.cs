@@ -17,7 +17,26 @@ namespace MySnake
             var startPoint = new Point (3, 3, '☺');
             var snake = new Snake(startPoint, 4, Direction.RIGHT);
             snake.Draw();
-            snake.HandleKey();
+
+            var foodCreator = new FoodCreator(80, 25, 'g');
+            var food = foodCreator.CreateFood();
+            food.Draw();
+            while (true)
+            {
+                if (snake.Eat(food))
+                {
+                    food = foodCreator.CreateFood();
+                    food.Draw();
+                }
+                else
+                    snake.Move();
+                Thread.Sleep(100);
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key);
+                }
+            }
             Console.ReadLine();
         }
         static void DrowFrame()
