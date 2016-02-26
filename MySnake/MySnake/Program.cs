@@ -10,8 +10,12 @@ namespace MySnake
     {
         static void Main(string[] args)
         {
-
-            DrowFrame();
+            // Отрисовка рамки
+            DrowFrame(); 
+            // Отрисовка змейки
+            var startPoint = new Point (3, 3, '*');
+            var snake = new Snake(startPoint, 4, Direction.RIGHT);
+            snake.Draw();
             Console.ReadLine();
         }
         static void DrowFrame()
