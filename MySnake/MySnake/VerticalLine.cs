@@ -14,7 +14,7 @@ namespace MySnake
             for (int y = yUp; y <= yDown; y++)
             {
                 var p = new Point(x, y, sym);
-                p.Draw();
+                pList.Add(p);
             }
         }
 

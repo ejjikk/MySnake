@@ -15,7 +15,8 @@ namespace MySnake
             DrowFrame(); 
             // Отрисовка змейки
             var startPoint = new Point (3, 3, '☺');
-            var snake = new Snake(startPoint, 4, Direction.RIGHT);
+            Snake snake = new Snake(startPoint, 4, Direction.RIGHT);
+            snake.Colorize();
             snake.Draw();
 
             var foodCreator = new FoodCreator(80, 25, 'g');
@@ -42,12 +43,14 @@ namespace MySnake
         static void DrowFrame()
         {
             var UpLine = new HorizontalLine(0, 78, 0, '-');
-            var DownLine = new HorizontalLine(0, 78, 24, '-');
-            var LeftLine = new VerticalLine(0, 0, 24, '|');
-            var RightLine = new VerticalLine(78, 0, 24, '|');
+            UpLine.Colorize();
             UpLine.Draw();
+            var DownLine = new HorizontalLine(0, 78, 24, '-');
+            DownLine.Colorize();
             DownLine.Draw();
+            var LeftLine = new VerticalLine(0, 0, 24, '!');
             LeftLine.Draw();
+            var RightLine = new VerticalLine(78, 0, 24, '!');
             RightLine.Draw();
         }
     }

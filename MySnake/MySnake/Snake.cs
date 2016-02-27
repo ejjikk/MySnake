@@ -30,6 +30,7 @@ namespace MySnake
             pList.Add(head);
 
             tail.Clear();
+            Console.ForegroundColor = (ConsoleColor)color;
             head.Draw();
         }
 

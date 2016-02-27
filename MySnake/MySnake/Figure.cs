@@ -9,12 +9,21 @@ namespace MySnake
     class Figure
     {
         protected List<Point> pList;
-        public void Draw()
+        virtual public void Draw()
         {
-            foreach (var p in pList)
+            foreach (Point p in pList)
             {
+                Console.ForegroundColor = (ConsoleColor)color;
                 p.Draw();
+                Console.ForegroundColor = ConsoleColor.White;
             }
+        }
+        protected int color = 15;
+
+        public void Colorize()
+        {
+            Random randomColor = new Random();
+            color = randomColor.Next(9, 15);
         }
     }
 }
