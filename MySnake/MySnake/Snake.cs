@@ -32,6 +32,7 @@ namespace MySnake
             tail.Clear();
             Console.ForegroundColor = (ConsoleColor)color;
             head.Draw();
+            Console.ForegroundColor = (ConsoleColor)15;
         }
 
         public Point GetNextPoint()
@@ -44,13 +45,13 @@ namespace MySnake
 
         public void HandleKey(ConsoleKeyInfo key)
         {
-            if (key.Key == ConsoleKey.RightArrow)
+            if (key.Key == ConsoleKey.RightArrow && direction != Direction.RIGHT && direction != Direction.LEFT)
                 direction = Direction.RIGHT;
-            else if (key.Key == ConsoleKey.LeftArrow)
+            else if (key.Key == ConsoleKey.LeftArrow && direction != Direction.LEFT && direction != Direction.RIGHT)
                 direction = Direction.LEFT;
-            else if (key.Key == ConsoleKey.UpArrow)
+            else if (key.Key == ConsoleKey.UpArrow && direction != Direction.UP && direction != Direction.DOWN)
                 direction = Direction.UP;
-            else if (key.Key == ConsoleKey.DownArrow)
+            else if (key.Key == ConsoleKey.DownArrow && direction != Direction.UP && direction != Direction.DOWN)
                 direction = Direction.DOWN;
 
         }
@@ -64,6 +65,17 @@ namespace MySnake
                 return true;
             }
             else return false;
+        }
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
         }
     }
 }
