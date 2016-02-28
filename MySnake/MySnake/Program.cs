@@ -63,12 +63,15 @@ namespace MySnake
             walls.Draw();
             // Отрисовка змейки
             var startPoint = new Point(3, 3, '☺');
-            Snake snake = new Snake(startPoint, 14, Direction.RIGHT);
+            Snake snake = new Snake(startPoint, 34, Direction.RIGHT);
             snake.Colorize();
             snake.Draw();
             // Отрисовка еды
             var foodCreator = new FoodCreator(80, 25, 'A');
-            var food = foodCreator.CreateFood();
+            var food = new Point();
+            do {
+                food = foodCreator.CreateFood();
+            } while (snake.IsHit(food));
             food.Draw(); 
             
             while (true)
@@ -79,7 +82,10 @@ namespace MySnake
                 }
                 if (snake.Eat(food))
                 {
-                    food = foodCreator.CreateFood();
+                    do
+                    {
+                        food = foodCreator.CreateFood();
+                    } while (snake.IsHit(food));
                     food.Draw();
                 }
                 else

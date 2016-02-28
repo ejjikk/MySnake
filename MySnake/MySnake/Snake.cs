@@ -24,12 +24,14 @@ namespace MySnake
 
         internal void Move()
         {
-            Point tail = pList.First();
-            pList.Remove(tail);
-            Point head = GetNextPoint();
-            pList.Add(head);
-
-            tail.Clear();
+            Point tail = pList.First(); // tooooh -> tail = t
+            pList.Remove(tail);  // tooooh  -> ooooh 
+            Point head = GetNextPoint(); // head = n
+            pList.Add(head); // oooohn
+            if (tail.x < 79)
+                tail.Clear();
+            else
+                tail.Clear();
             Console.ForegroundColor = (ConsoleColor)color;
             head.Draw();
             Console.ForegroundColor = (ConsoleColor)15;

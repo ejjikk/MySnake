@@ -36,7 +36,7 @@ namespace MySnake
             return false;
         }
 
-        private bool IsHit(Point point)
+        internal bool IsHit(Point point)
         {
             foreach (var p in pList)
             {
