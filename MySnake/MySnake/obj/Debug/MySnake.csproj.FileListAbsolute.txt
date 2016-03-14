@@ -1,6 +1,0 @@
-E:\GeekBrains\MySnake\MySnake\MySnake\bin\Debug\MySnake.exe.config
-E:\GeekBrains\MySnake\MySnake\MySnake\obj\Debug\MySnake.exe
-E:\GeekBrains\MySnake\MySnake\MySnake\obj\Debug\MySnake.pdb
-E:\GeekBrains\MySnake\MySnake\MySnake\bin\Debug\MySnake.exe
-E:\GeekBrains\MySnake\MySnake\MySnake\bin\Debug\MySnake.pdb
-E:\GeekBrains\MySnake\MySnake\MySnake\obj\Debug\MySnake.csprojResolveAssemblyReference.cache
